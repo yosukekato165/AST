@@ -1,4 +1,5 @@
 const concat = require("concat-stream");
+const escodegen = require("escodegen");
 const fs = require("fs");
 
 let input;
@@ -12,6 +13,9 @@ if (file && file != "-") {
 
 input.pipe(
   concat((buf) => {
-    const code = buf.toString("utf8");
+    const json = buf.toString("utf8");
+    const ast = JSON.parse(json);
+    const code = escodegen.generate(ast);
+    console.log(code);
   })
 );
