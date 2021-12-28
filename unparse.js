@@ -13,6 +13,7 @@ if (file && file != "-") {
 
 input.pipe(
   concat((buf) => {
+    console.log(`unperse buf ${buf}`);
     const json = buf.toString("utf8");
     const ast = JSON.parse(json);
     const code = escodegen.generate(ast);
