@@ -10,6 +10,13 @@ run((json) => {
   estraverase.traverse(ast, {
     enter: function (currentNode, parentNode) {
       console.log(indent(`enter ${currentNode.type}`, depth));
+      if (
+        currentNode.type === "VariableDeclaration" &&
+        currentNode.kind === "var"
+      ) {
+        console.log("Don't use var");
+        throw new Error("Don't use var");
+      }
       depth += 2;
     },
 
