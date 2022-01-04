@@ -14,7 +14,6 @@ run((json) => {
         currentNode.type === "VariableDeclaration" &&
         currentNode.kind === "var"
       ) {
-        // console.log("Don't use var");
         throw new Error("Don't use var");
       }
       depth += 2;
