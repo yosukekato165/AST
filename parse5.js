@@ -24,6 +24,4 @@ run((json) => {
       console.log(indent(`leave ${currentNode.type}`, depth));
     },
   });
-
-  // console.log(JSON.stringify(ast, null, 2));
 });
