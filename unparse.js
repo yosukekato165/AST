@@ -21,6 +21,7 @@ input.pipe(
     });
     varArray.forEach((e) => {
       if (e) {
+        console.log("Don't use var");
         throw new Error("Don't use var");
       }
     });
